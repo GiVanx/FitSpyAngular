@@ -1,0 +1,15 @@
+<p *ngIf="!activeSession">Loading...</p>
+
+<ng-container *ngIf="activeSession">
+  <h1>{{ activeSession.id }}</h1>
+
+  <div *ngFor="let exerciseSession of activeSession.exerciseSessions">
+    <span>{{ exerciseSession.exercisePlan.exercise.name }}</span>
+    <span *ngIf="exerciseSession.completed">
+      Done
+    </span>
+    <button *ngIf="!exerciseSession.completed">
+      Start
+    </button>
+  </div>
+</ng-container>
